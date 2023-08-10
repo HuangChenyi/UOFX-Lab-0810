@@ -1,0 +1,130 @@
+^[A-Za-z0-9]+$ 
+
+
+小小抄
+
+外部連線設定SQL
+LabSQL 有間公司SQL連線
+
+
+http://192.168.1.179/
+server=172.16.3.194;user id=UOFDEV;password=Pa$$w0rd;initial catalog=NORTHWND
+
+
+
+取得產品SQL
+select ProductID,ProductName from Products where CategoryID=@CategoryID
+@CategoryID	類別ID	設計表單時再指定
+
+取得金額SQL
+select UnitPrice from Products where ProductID=@ProductID
+
+@ProductID	產品ID	設計表單時再指定
+
+
+
+建立訂單SQL
+INSERT INTO [dbo].[FORM_DATA] ([ID] ,[FORM_NBR] ,[CATEGORY_ID] ,[PRODUCT_ID] ,[APPLICANT] ,[UNIT_PRICE] ,[FORM_RESULT]) VALUES (newid() ,@FORM_NBR ,@CATEGORY_ID ,@PRODUCT_ID ,@APPLICANT ,@UNIT_PRICE ,@FORM_RESULT)
+@APPLICANT	申請者	單據資訊 = 申請者 帳號
+@CATEGORY_ID	類別	設計表單時再指定
+@FORM_NBR	表單編號	設計表單時再指定
+@FORM_RESULT	審核結果	簽核中
+@PRODUCT_ID	產品	設計表單時再指定
+@UNIT_PRICE	單價	設計表單時再指定
+
+
+取得類別SQL  
+select CategoryID,CategoryName from Categories
+
+
+訂單結案同意SQL
+
+UPDATE FORM_DATA
+SET FORM_RESULT=@FORM_RESULT
+WHERE FORM_NBR=@FORM_NBR
+
+FORM_NBR	單號	設計表單時再指定
+FORM_RESULT	審核結果	同意
+
+
+
+
+訂單結案否決SQL
+
+UPDATE FORM_DATA
+SET FORM_RESULT=@FORM_RESULT
+WHERE FORM_NBR=@FORM_NBR
+
+FORM_NBR	單號	設計表單時再指定
+FORM_RESULT	審核結果	否決
+
+
+金額驗證SQL    
+
+SELECT dbo.FN_DemoCheckForm(@productName,@price)
+
+@price	金額	設計表單時再指定
+@productName	產品名稱	設計表單時再指定
+
+
+
+
+外部連線設定API
+ERPAPI	有間公司API連線
+http://172.16.3.194:8899/
+
+
+
+取得類別-API    (GET)
+http://172.16.3.194:8899/api/Customers/GetCategories
+
+
+
+取得金額API   (GET)
+http://172.16.3.194:8899/API/Customers/GetProductPrice
+productID	產品ID	設計表單時再指定
+
+
+
+取得產品API    (GET)
+http://172.16.3.194:8899/api/Customers/GetProducts
+categoryID	類別	設計表單時再指定
+
+
+
+建立訂單API    (POST)
+http://172.16.3.194:8899/api/customers/CreateFormDatar
+FORM_NBR	單號	設計表單時再指定
+CATEGORY_ID	類別	設計表單時再指定
+PRODUCT_ID	產品	設計表單時再指定
+APPLICANT	申請者	單據資訊 = 申請者 帳號
+UNIT_PRICE	金額	設計表單時再指定
+FORM_RESULT	結果	簽核中
+
+
+
+
+金額驗證API      (POST)
+http://172.16.3.194:8899/api/Customers/CheckedOrderPrice
+price	實際金額	設計表單時再指定
+ProductPrice	產品金額	設計表單時再指定
+
+
+
+
+訂單結案同意API   (POST)
+http://172.16.3.194:8899/api/Customers/UpdateFormData
+FORM_NBR	單號	設計表單時再指定
+FORM_RESULT	審核結果	同意
+
+
+
+
+訂單結案否決API  (POST)
+http://172.16.3.194:8899/api/Customers/UpdateFormData
+FORM_NBR	單號	設計表單時再指定
+FORM_RESULT	審核結果	否決
+
+
+
+

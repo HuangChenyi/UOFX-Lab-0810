@@ -37,13 +37,12 @@ import { DemoFieldExProps } from '../props/demo-field.props.component';
 /*置換className*/
 export class DemoFieldWriteComponent
   extends BpmFwWriteComponent
-  implements OnInit
-{
+  implements OnInit {
 
   /*修改*/
   /*置換className*/
   @Input() exProps: DemoFieldExProps;
-
+  value: DemoFieldInfo;
   form: FormGroup;
   constructor(
     private cdr: ChangeDetectorRef,
@@ -80,8 +79,13 @@ export class DemoFieldWriteComponent
 
   initForm() {
     this.form = this.fb.group({
-      message: this.value?.message || '',
+      companyName: '',
+      address: '',
+      phone: ''
     });
+    if (this.value) {
+      this.form.setValue(this.value);
+    }
 
     // if (this.selfControl) {
     //   // 在此便可設定自己的驗證器
@@ -105,4 +109,12 @@ function validateSelf(form: FormGroup): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     return form.valid ? null : { formInvalid: true };
   };
+}
+
+
+
+export interface DemoFieldInfo {
+  companyName: string;
+  address: string;
+  phone: string;
 }

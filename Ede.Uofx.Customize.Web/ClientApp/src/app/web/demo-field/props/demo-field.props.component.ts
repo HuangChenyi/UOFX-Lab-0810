@@ -61,7 +61,7 @@ export class DemoFieldPropsComponent
     if (!this.exProps) {
       // 初始化設定額外屬性
       this.exProps = {
-        isShowHelloWorld: false,
+        isShowHelloWorld: false
       };
     } else {
       // 若已有存在的 exProps
@@ -81,4 +81,5 @@ export class DemoFieldPropsComponent
 /*置換interface名稱*/
 export interface DemoFieldExProps {
   isShowHelloWorld: boolean;
+
 }

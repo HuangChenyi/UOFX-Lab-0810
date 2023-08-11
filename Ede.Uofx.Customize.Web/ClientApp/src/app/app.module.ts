@@ -13,6 +13,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { CuseromerService } from '@service/cuseromer.service';
 import { FormsModule } from '@angular/forms';
 import { Helper } from '@uofx/core';
 import { HomeComponent } from './home/home.component';
@@ -67,7 +68,7 @@ const EJS_MODULES = [MenuModule, SidebarModule, ToolbarModule];
     ...EJS_MODULES,
     IconModule.forRoot(),
   ],
-  providers: [{ provide: 'BASE_HREF', useFactory: Helper.getBaseHref }],
+  providers: [{ provide: 'BASE_HREF', useFactory: Helper.getBaseHref },CuseromerService ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })

@@ -32,6 +32,7 @@ import {
 
 import { BasicHttpClient } from '@service/basic-http-client';
 import { CommonModule } from '@angular/common';
+import { CuseromerService } from '@service/cuseromer.service';
 import { DemoFieldPropsComponent } from './props/demo-field.props.component';
 import { DemoFieldWriteComponent } from './write/demo-field.write.component';
 import { DialogModule } from '@syncfusion/ej2-angular-popups';
@@ -84,7 +85,7 @@ const COMPONENTS = [DemoFieldPropsComponent, DemoFieldWriteComponent];
 
 const BASIC_SERVICES = [
   { provide: BASIC_HTTP_HANDLER, useClass: BasicHttpHandler },
-  BasicHttpClient,
+  BasicHttpClient,CuseromerService
 ];
 
 /*修改*/

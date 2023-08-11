@@ -21,6 +21,7 @@ import {
   PageSettingsModel,
 } from '@syncfusion/ej2-angular-grids';
 
+import { CuseromerService } from '@service/cuseromer.service';
 import { DemoFieldExProps } from '../props/demo-field.props.component';
 import { SelectCustomerComponent } from '../select-customer/select-customer.component';
 import { UofxDialogController } from '@uofx/web-components/dialog';
@@ -50,7 +51,8 @@ export class DemoFieldWriteComponent
     private cdr: ChangeDetectorRef,
     private fb: FormBuilder,
     private tools: UofxFormTools,
-    private dialogCtrl: UofxDialogController
+    private dialogCtrl: UofxDialogController,
+    private cs: CuseromerService
   ) {
     super();
   }
@@ -60,6 +62,8 @@ export class DemoFieldWriteComponent
   ngOnInit(): void {
 
     this.initForm();
+
+
 
     this.parentForm.statusChanges.subscribe((res) => {
       if (res === 'INVALID' && this.selfControl.dirty) {
@@ -105,24 +109,30 @@ export class DemoFieldWriteComponent
     });
   }
 
-  onOpen()
-  {
-this.dialogCtrl.createFlexibleScreen({
-  component: SelectCustomerComponent,
-  params: {
-     /*開窗要帶的參數*/
-     apiurl:this.pluginSetting.entryHost
-  }
-}).afterClose.subscribe({
-  next: res => {
-  /*關閉視窗後處理的訂閱事件*/
-  if (res) {
+  onOpen() {
+    this.dialogCtrl.createFlexibleScreen({
+      component: SelectCustomerComponent,
+      params: {
+        /*開窗要帶的參數*/
+        apiurl: this.pluginSetting.entryHost
+      }
+    }).afterClose.subscribe({
+      next: res => {
+        /*關閉視窗後處理的訂閱事件*/
+        if (res) {
+
+console.log(res);
+          this.form.controls.companyName.setValue(res.companyName);
+          this.form.controls.phone.setValue(res.phone);
+
+          this.form.controls.address.setValue(res.address);
 
 
+          this.valueChanges.emit(this.form.value);
 
-  }
-}
-});
+        }
+      }
+    });
   }
 
 }

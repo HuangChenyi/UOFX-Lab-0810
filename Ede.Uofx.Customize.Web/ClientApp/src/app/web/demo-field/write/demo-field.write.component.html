@@ -3,20 +3,17 @@
   </uofx-form-field-name>
 </div>
 <div class="fw-control">
-
   <table width="100%" [formGroup]="form">
-    <tr>
-      <th style="text-align: center" colspan="4">公司資料</th>
-    </tr>
     <tr>
       <Th>
         <span>公司名稱</span>
       </Th>
-      <td colspan="3">
-        <p *ngIf="editable">
-
-        </p>
-        <ejs-textbox *ngIf="editable" formControlName="companyName"></ejs-textbox>
+      <td>
+        <p *ngIf="editable"></p>
+        <ejs-textbox
+          *ngIf="editable"
+          formControlName="companyName"
+        ></ejs-textbox>
         <span *ngIf="!editable">{{ value.companyName }}</span>
       </td>
     </tr>
@@ -28,6 +25,8 @@
         <ejs-textbox *ngIf="editable" formControlName="address"></ejs-textbox>
         <span *ngIf="!editable">{{ value.address }}</span>
       </td>
+    </tr>
+    <tr>
       <th>
         <span>電話</span>
       </th>
@@ -36,9 +35,5 @@
         <span *ngIf="!editable">{{ value.phone }}</span>
       </td>
     </tr>
-
   </table>
-
 </div>
-
-

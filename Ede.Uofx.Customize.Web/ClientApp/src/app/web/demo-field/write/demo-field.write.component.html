@@ -3,6 +3,9 @@
   </uofx-form-field-name>
 </div>
 <div class="fw-control">
+  {{exProps?.apiURL}}
+  <span n *ngIf="exProps?.isShowHelloWorld ? true : false"
+  >hello 外掛欄位 write mode</span>
   <table width="100%" [formGroup]="form">
     <tr>
       <Th>

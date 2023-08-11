@@ -22,6 +22,8 @@ import {
 } from '@syncfusion/ej2-angular-grids';
 
 import { DemoFieldExProps } from '../props/demo-field.props.component';
+import { SelectCustomerComponent } from '../select-customer/select-customer.component';
+import { UofxDialogController } from '@uofx/web-components/dialog';
 
 /*修改*/
 /*↑↑↑↑修改import 各模式的Component↑↑↑↑*/
@@ -47,7 +49,8 @@ export class DemoFieldWriteComponent
   constructor(
     private cdr: ChangeDetectorRef,
     private fb: FormBuilder,
-    private tools: UofxFormTools
+    private tools: UofxFormTools,
+    private dialogCtrl: UofxDialogController
   ) {
     super();
   }
@@ -101,6 +104,27 @@ export class DemoFieldWriteComponent
       resolve(true);
     });
   }
+
+  onOpen()
+  {
+this.dialogCtrl.createFlexibleScreen({
+  component: SelectCustomerComponent,
+  params: {
+     /*開窗要帶的參數*/
+     apiurl:this.pluginSetting.entryHost
+  }
+}).afterClose.subscribe({
+  next: res => {
+  /*關閉視窗後處理的訂閱事件*/
+  if (res) {
+
+
+
+  }
+}
+});
+  }
+
 }
 
 

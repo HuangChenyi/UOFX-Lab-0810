@@ -12,7 +12,13 @@
         <span>公司名稱</span>
       </Th>
       <td>
-        <p *ngIf="editable"></p>
+        <p *ngIf="editable">
+          <button
+             class="e-btn u-btn-primary buttons-opposite"
+              data-ripple="true"
+             (click)="onOpen()">請選擇
+           </button>
+        </p>
         <ejs-textbox
           *ngIf="editable"
           formControlName="companyName"

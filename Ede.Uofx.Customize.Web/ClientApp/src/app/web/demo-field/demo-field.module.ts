@@ -38,6 +38,7 @@ import { DialogModule } from '@syncfusion/ej2-angular-popups';
 import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { SelectCustomerComponent } from './select-customer/select-customer.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { UofxDialogModule } from '@uofx/web-components/dialog';
 import { UofxIconModule } from '@uofx/web-components/icon';
@@ -113,7 +114,7 @@ const BASIC_SERVICES = [
   ],
   providers: [BASIC_SERVICES, UofxPluginApiService],
   exports: [...COMPONENTS],
-  declarations: [...COMPONENTS],
+  declarations: [...COMPONENTS, SelectCustomerComponent],
 })
 
 /*修改*/

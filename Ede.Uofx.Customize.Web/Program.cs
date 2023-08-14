@@ -33,7 +33,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseCors(MyAllowSpecificOrigins);
-//app.UseMiddleware<ApiSignatureMiddleware>();
+app.UseMiddleware<ApiSignatureMiddleware>();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");

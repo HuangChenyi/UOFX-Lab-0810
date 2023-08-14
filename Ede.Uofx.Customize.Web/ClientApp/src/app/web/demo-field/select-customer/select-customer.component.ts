@@ -51,7 +51,7 @@ onPagerClick(event) {
   }
 
   ngOnInit(): void {
-
+this.cs.serverUrl=this.params.apiurl;
     this.cs.getbanks().subscribe(res=>{
       this.searchResult=[...res];
     })

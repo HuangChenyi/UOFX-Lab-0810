@@ -1,8 +1,11 @@
+import * as CryptoJS from 'crypto-js';
+
 import { Helper, UofxConsole } from '@uofx/core';
 import { HttpEvent, HttpHandler, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable, InjectionToken } from '@angular/core';
+
 import { Observable } from 'rxjs';
-import * as CryptoJS from 'crypto-js';
+
 export const BASIC_HTTP_HANDLER = new InjectionToken<HttpHandler>('BASIC_HTTP_HANDLER');
 
 @Injectable()
@@ -45,7 +48,7 @@ export class EmployeeHttpHandler extends BasicHttpHandler {
     /** 設定 Http Request Header  */
     private setSignatureHeader(): HttpHeaders {
       const message = new Date().toISOString();
-      const apiKey = "SampleAdvanced" ;
+      const apiKey = "UOFXBPMSite" ;
       const signature = CryptoJS.HmacSHA256(message, apiKey).toString();
 
       return new HttpHeaders({

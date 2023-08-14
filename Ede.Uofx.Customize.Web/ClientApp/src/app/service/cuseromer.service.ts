@@ -7,7 +7,7 @@ export class CuseromerService extends BasicApiService {
 
   getbanks()
   {
-    return this.http.get<DemoFieldInfo[]>("http://192.168.1.28:8899/api/Banks/GetBank")
+    return this.http.get<DemoFieldInfo[]>("~/api/Banks/GetBank")
   }
 
 }

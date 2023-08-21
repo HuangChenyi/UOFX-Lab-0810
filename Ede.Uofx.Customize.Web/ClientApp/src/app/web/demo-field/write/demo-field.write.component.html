@@ -3,6 +3,7 @@
   </uofx-form-field-name>
 </div>
 <div class="fw-control">
+  <ejs-textbox></ejs-textbox>
   {{exProps?.apiURL}}
   <span n *ngIf="exProps?.isShowHelloWorld ? true : false"
   >hello 外掛欄位 write mode</span>
@@ -12,7 +13,7 @@
         <span>公司名稱</span>
       </Th>
       <td>
-        <p *ngIf="editable">
+        <p >
           <button
              class="e-btn u-btn-primary buttons-opposite"
               data-ripple="true"
@@ -20,10 +21,10 @@
            </button>
         </p>
         <ejs-textbox
-          *ngIf="editable"
+
           formControlName="companyName"
         ></ejs-textbox>
-        <span *ngIf="!editable">{{ value.companyName }}</span>
+        <!-- <span *ngIf="!editable">{{ value.companyName }}</span> -->
       </td>
     </tr>
     <tr>
@@ -31,8 +32,8 @@
         <span>地址</span>
       </th>
       <td>
-        <ejs-textbox *ngIf="editable" formControlName="address"></ejs-textbox>
-        <span *ngIf="!editable">{{ value.address }}</span>
+        <ejs-textbox formControlName="address"></ejs-textbox>
+        <!-- <span *ngIf="!editable">{{ value.address }}</span> -->
       </td>
     </tr>
     <tr>
@@ -40,8 +41,8 @@
         <span>電話</span>
       </th>
       <td>
-        <ejs-textbox *ngIf="editable" formControlName="phone"></ejs-textbox>
-        <span *ngIf="!editable">{{ value.phone }}</span>
+        <ejs-textbox  formControlName="phone"></ejs-textbox>
+        <!-- <span *ngIf="!editable">{{ value.phone }}</span> -->
       </td>
     </tr>
   </table>

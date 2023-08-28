@@ -1,7 +1,9 @@
+import { BASIC_HTTP_HANDLER, BasicHttpHandler } from '@service/basic-http-handler';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UofxCameraPlugin, UofxGeolocationPlugin, UofxToastPlugin } from '@uofx/app-native';
 
+import { BasicHttpClient } from '@service/basic-http-client';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
@@ -16,6 +18,11 @@ const UOF_MODULES = [
 
 const COMPONENTS = [
   TemplateFieldComponent
+];
+
+const BASIC_SERVICES = [
+  { provide: BASIC_HTTP_HANDLER, useClass: BasicHttpHandler },
+  BasicHttpClient
 ];
 
 const UOF_PLUGINS = [
@@ -34,10 +41,9 @@ const UOF_PLUGINS = [
     ]),
     TranslateModule.forChild(),
     IonicModule,
-
     ...UOF_MODULES,
   ],
-  providers: [UofxPluginApiService,...UOF_PLUGINS],
+  providers: [UofxPluginApiService,...UOF_PLUGINS,...BASIC_SERVICES],
   exports: [...COMPONENTS],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [...COMPONENTS]

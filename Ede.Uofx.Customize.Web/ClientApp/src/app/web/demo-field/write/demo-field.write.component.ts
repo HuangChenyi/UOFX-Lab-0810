@@ -121,13 +121,13 @@ export class DemoFieldWriteComponent
         /*關閉視窗後處理的訂閱事件*/
         if (res) {
 
-console.log(res);
+
           this.form.controls.companyName.setValue(res.companyName);
           this.form.controls.phone.setValue(res.phone);
 
           this.form.controls.address.setValue(res.address);
 
-
+          this.cdr.detectChanges();
           this.valueChanges.emit(this.form.value);
 
         }

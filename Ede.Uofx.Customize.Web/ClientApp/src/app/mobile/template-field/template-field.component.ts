@@ -25,8 +25,19 @@ export class TemplateFieldComponent extends BpmFwWriteComponent implements OnIni
   ngOnInit(): void {
 
     this.form = this.fb.group({
-      message: this.value?.message || '',
+      message: ''
     });
+
+    if (this.value) {
+      this.form.setValue(this.value);
+    }
+
+    this.form.valueChanges.subscribe((res) => {
+      this.selfControl?.setValue(res);
+      /*真正送出欄位值變更的函式*/
+      this.valueChanges.emit(res);
+    });
+    this.cdr.detectChanges();
   }
 
 }

@@ -97,7 +97,8 @@
 		"        </ion-buttons> ",
 		"   </ion-toolbar>",
 		"</ion-header>",
-		"<ion-content>"
+		"<ion-content>",
+		"</ion-content>"
 	  ],
 	  "description": "通用Modal樣板"
 	}
@@ -105,6 +106,7 @@
 	"X List": {
 	  "prefix": "x-List",
 	  "body": [
+		"<ion-list>",
 		"<ion-item",
 		"   *ngFor=\"let item of searchResult; let i = index\"",
 		"       (click)=\"selectItem(item)\" >",
@@ -112,7 +114,6 @@
 		"             <h2></h2>",
 		"        </ion-label>",
 		"   </ion-item>",
-		"</ion-header>",
 		"</ion-list>"
 	  ],
 	  "description": "通用ioniclist樣板"

@@ -141,7 +141,7 @@
     }
     ,
     "X CreatModalConstructor": {
-      "prefix": "x-CreatModalConstructor",
+      "prefix": "x-CreatModal",
       "body": [
         "constructor(public modalController: ModalController, private cdr: ChangeDetectorRef){}",
         "",
@@ -153,7 +153,15 @@
         "    });",
         "  }",
       ],
-      "description": "建立tModalConstructor樣板"
+      "description": "建立Modal樣板"
+    }
+    ,
+    "X ModalController": {
+      "prefix": "x-ModalController",
+      "body": [
+        "public modalController: ModalController"
+      ],
+      "description": "建立ModalController"
     }
     ,
     "X CreatModal": {

@@ -117,5 +117,34 @@
 		"</ion-list>"
 	  ],
 	  "description": "通用ioniclist樣板"
+	},
+
+	"X DivStructure": {
+	  "prefix": "x-DivStructure",
+	  "body": [
+		"<div class=\"fw-control\" [formGroup]=\"form\">",
+		"<div class=\"fw-descr\">",
+		"   </div>",
+		"<div class=\"fw-descr\">",
+		"   </div>",
+		"</div>"
+	  ],
+	  "description": "通用 DivStructure樣板"
+	}
+	,
+
+	"X ShowFieldName": {
+	  "prefix": "x-ShowFieldName",
+	  "body": [
+		"<div>",
+		" <uofx-form-field-name [name]=\"name\" [required]=\"required\">",
+		"  </uofx-form-field-name>",
+		"</div>"
+	  ],
 	}
   }
+
+ 
+ 
+  
+</div>

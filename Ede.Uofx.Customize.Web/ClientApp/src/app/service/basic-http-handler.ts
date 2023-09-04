@@ -18,13 +18,25 @@ export class BasicHttpHandler implements HttpHandler {
       // 重設請求
       req = req.clone({
         // 若需要新增自訂 Header 存取 API，可以取消註解下行
-        // headers: new HttpHeaders({...}),
+         headers: this.setSignatureHeader(),
         url: req.url.replace('~/api', Helper.replaceUrlDoubleSlash(`${this.serverUrl}/api`))
       });
     } else {
       UofxConsole.error('Please setup serverUrl!');
     }
     return this.next.handle(req);
+  }
+
+  /** 設定 Http Request Header  */
+  public setSignatureHeader(): HttpHeaders {
+    const message = new Date().toISOString();
+    const apiKey = "UOFXBPMSite" ;
+    const signature = CryptoJS.HmacSHA256(message, apiKey).toString();
+
+    return new HttpHeaders({
+      'X-Timestamp': message,
+      'X-signature': signature,
+    });
   }
 }
 
@@ -45,15 +57,5 @@ export class EmployeeHttpHandler extends BasicHttpHandler {
   }
 
 
-    /** 設定 Http Request Header  */
-    private setSignatureHeader(): HttpHeaders {
-      const message = new Date().toISOString();
-      const apiKey = "UOFXBPMSite" ;
-      const signature = CryptoJS.HmacSHA256(message, apiKey).toString();
 
-      return new HttpHeaders({
-        'X-Timestamp': message,
-        'X-signature': signature,
-      });
-    }
 }

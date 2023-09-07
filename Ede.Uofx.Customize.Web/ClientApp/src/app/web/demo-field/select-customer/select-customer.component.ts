@@ -8,7 +8,7 @@ import {
  PageSettingsModel,
 } from '@syncfusion/ej2-angular-grids';
 import { DemoFieldInfo } from '../write/demo-field.write.component';
-import { CuseromerService } from '@service/cuseromer.service';
+import { CustomerService } from '@service/customer.service';
 @Component({
   selector: 'app-select-customer',
   templateUrl: './select-customer.component.html',
@@ -46,7 +46,7 @@ onPagerClick(event) {
 
 
   constructor(private dialogCtrl: UofxDialogController,
-    private cs :CuseromerService) {
+    private cs :CustomerService) {
     super();
   }
 

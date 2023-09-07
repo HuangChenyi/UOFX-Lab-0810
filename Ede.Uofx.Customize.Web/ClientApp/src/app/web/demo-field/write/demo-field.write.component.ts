@@ -21,7 +21,7 @@ import {
   PageSettingsModel,
 } from '@syncfusion/ej2-angular-grids';
 
-import { CuseromerService } from '@service/cuseromer.service';
+import { CustomerService } from '@service/customer.service';
 import { DemoFieldExProps } from '../props/demo-field.props.component';
 import { SelectCustomerComponent } from '../select-customer/select-customer.component';
 import { UofxDialogController } from '@uofx/web-components/dialog';
@@ -52,7 +52,7 @@ export class DemoFieldWriteComponent
     private fb: FormBuilder,
     private tools: UofxFormTools,
     private dialogCtrl: UofxDialogController,
-    private cs: CuseromerService
+    private cs: CustomerService
   ) {
     super();
   }

@@ -3,7 +3,7 @@ import { DemoFieldInfo } from '../web/demo-field/write/demo-field.write.componen
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class CuseromerService extends BasicApiService {
+export class CustomerService extends BasicApiService {
 
   getbanks()
   {

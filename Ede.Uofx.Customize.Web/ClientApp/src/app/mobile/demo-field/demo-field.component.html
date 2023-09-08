@@ -1,0 +1,21 @@
+<div>
+  <uofx-form-field-name [name]="name" [required]="required">
+  </uofx-form-field-name>
+</div>
+<div class="fw-control" [formGroup]="form">
+  <div class="fw-descr">公司名稱</div>
+  <div class="fw-descr">
+    <ion-button (click)="openModal()" >請選擇</ion-button>
+    <ion-input formControlName="companyName"></ion-input>
+  </div>
+  <div class="fw-descr">地址</div>
+  <div class="fw-descr">
+    <ion-input formControlName="address"></ion-input>
+  </div>
+  <div class="fw-descr">電話</div>
+  <div class="fw-descr">
+    <ion-input formControlName="phone"></ion-input>
+  </div>
+</div>
+
+

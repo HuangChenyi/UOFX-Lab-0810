@@ -13,7 +13,7 @@
     "moduleName": "DemoFieldModule",
     "app": {
       "exposedModule": "./DemoField",
-      "moduleName": "FieldHelloWorldAppModule"
+      "moduleName": "DemoFieldAppModule"
     }
   }
 }

@@ -7,7 +7,8 @@ const exposes = {
     './DemoField': './src/app/web/demo-field/demo-field.module.ts'
   },
   app: {
-   './TemplateField': './src/app/mobile/template-field/template-field.module.ts'
+   './TemplateField': './src/app/mobile/template-field/template-field.module.ts',
+   './DemoField': './src/app/mobile/demo-field/demo-field.module.ts'
   }
 };
 
